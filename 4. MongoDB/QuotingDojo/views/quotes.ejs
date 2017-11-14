@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Quotes</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript"></script>
+    </head>
+    <body>
+        <% for(var i=0; i < quoters.length; i++) { %>
+            <p>"<%= quoters[i].quote %>"</p
+            <p>-<%= quoters[i].name %> at <%= quoters[i].createdAt %></p>
+            <form action="/deleteQuoter/<%= quoters[i]._id %>" method="post">
+                <button onclick="action">Remove Quote</button>
+            </form>
+        <% } %>
+    </body>
+</html>

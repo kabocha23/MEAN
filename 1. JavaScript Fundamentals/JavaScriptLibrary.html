@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script type="text/javascript">
+
+            var _ = {
+                map: function(list, callBack) {
+                    let newarr = [];
+                    for(let num in list){
+                      newarr.push(callBack(list[num]));
+                    }
+                    return newarr;
+                  },
+                reduce: function(list, callback) { 
+                    let sum = 0;
+                    for(let num = 0; num < list.length; num++){
+                        sum += callback(list[num]);
+                    }
+                },
+                find: function(list, callback) {   
+                    for(let num of list){
+                        if(callback(num)){
+                            return num;
+                        }
+                    }
+                    return "Not found";
+                },
+                filter: function(list, callback) { 
+                    var newarr = [];
+                    for(let num in list){
+                        if(callback(num)){
+                            newarr.push(num);
+                        }   
+                    }
+                    return newarr;
+                },
+                reject: function() { 
+                    var newarr = [];
+                    for(let num in list){
+                        if(!callback(num)){
+                            newarr.push(num);
+                        }   
+                    }
+                    return newarr;
+                }
+            }
+
+        
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>JS Intermediate</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            //Part 1
+            function starString(num){
+                let str = "";
+                for(let i = 1; i <= num; i++){
+                    str += "*";
+                }
+                return str;
+            }
+            let stars = starString(10);
+            console.log(stars);
+
+            //Part 2
+            function drawStars(arr){
+                for(let j = 0; j < arr.length; j++){
+                    console.log(starString(arr[j]));
+                }
+            }
+            var a = [1,2,3,4,5,6]
+            drawStars(a)
+
+            //Part 3
+            function drawStars2(arr){
+                for(let j = 0; j < arr.length; j++){
+                  if(typeof arr[j] === "string"){
+                    let str = ""
+                    let first = arr[j].charAt(0);
+                    let firstLow = first.toLowerCase();
+                    for(let i = 1; i <= arr[j].length; i++){
+                      str += firstLow;
+                    }
+                    console.log(str)
+                  } else {
+                    console.log(starString(arr[j]));
+                  }
+                }
+              }
+
+            let a = [1,2,3,4,5,6]
+            drawStars2(a)           
+            
+        </script>
+    </body>
+</html>

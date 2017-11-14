@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Ninja Class 2</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            class Ninja {
+                constructor(name, health) {
+                    const self = this;
+                    const speed = 3;
+                    const strength = 3;
+                    this.name = name;
+                    this.health = 100;
+                    this.getStrength = () => strength
+                    this.sayName = function(){
+                        console.log(`My Ninja name is ${this.name}!`);
+                        return this;
+                    }
+                    this.showStats = function(){
+                        console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${speed}, Strength: ${strength}`);
+                        return this;
+                    }
+                    this.dinkSake = function(){
+                        this.health += 10;
+                        return this;
+                    }
+                }
+
+                punch(Ninja) {
+                    Ninja.health -= 5;
+                    console.log(`${Ninja.name} was punched by ${this.name} and lost 5 health!`);
+                    return this;
+                }
+
+                kick(Ninja) {
+                    const kickedHealth = 15 * this.getStrength();
+                    console.log(this.getStrength());
+                    Ninja.health -= kickedHealth;
+                    console.log(kickedHealth);
+                    console.log(`${Ninja.name} was kicked by ${this.name} and lost ${kickedHealth} health!`);
+                    return this;
+                }
+            }
+
+            const ninja1 = new Ninja("Hayabusa");
+            ninja1.sayName();
+            // -> "My ninja name is Hayabusa!"
+            ninja1.showStats();
+            // -> "Name: Hayabusa, Health: 100, Speed: 3, Strength: 3"
+            const blue_ninja = new Ninja("Goemon");
+            const red_ninja = new Ninja("Bill Gates");
+            red_ninja.punch(blue_ninja);
+            red_ninja.kick(blue_ninja);
+
+        </script>
+    </body>
+</html>

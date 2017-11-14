@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Survey Form</title>
+    <head>
+    <body>
+        <p>Thanks for submitting this form!</p>
+        <div class='submitted_box'>
+            <h1>Submitted Information</h1>
+            <p>Name: <%= session.name %></p>
+            <p>Location: <%= session.location %></p>
+            <p>Favorite Language: <%= session.language %></p>
+            <p>Comments: <%= session.comments %></p> 
+        </div>
+        <a href='/goback' alt='go_back'>
+            <button onclick=href name='goback'>Go Back</button>
+        </a>
+    </body>
+</html> 

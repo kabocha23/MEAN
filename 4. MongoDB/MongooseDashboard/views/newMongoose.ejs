@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Enter a New Mongoose</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript"></script>
+    </head>
+    <body>
+        <h1><%= title %></h1>
+            <% if (route == "/mongooses") { %>
+                <form id='submit_new' action='/mongooses' method='post'>
+                    Mongoose Name: <input type='text' name='name'>
+                    Mongoose Weight: <input type='text' name='weight'>
+                    Mongoose Favorite Phrase:<textarea rows="10" cols="50" type='text' name='phrase'></textarea>
+                    <input id='new_btn' type='submit' value='Submit'>
+                </form>
+            <% } else { %>
+                <form id='submit_edit' action='/mongooses/<%= data[0]._id %>' method='post'>
+                    Mongoose Name: <input type='text' name='name' value='<%= data[0].name %>'>
+                    Mongoose Weight: <input type='text' name='weight' value='<%= data[0].weight %>'>
+                    Mongoose Favorite Phrase:<textarea rows="10" cols="50" type='text' name='phrase'><%= data[0].phrase %></textarea>
+                    <input id='edit_btn' type='submit' value='Update'>
+                </form>
+            <% } %>
+        </form>
+    </body>
+</html>

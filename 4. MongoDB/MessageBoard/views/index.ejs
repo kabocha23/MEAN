@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Dojo Message Board</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript"></script>
+    </head>
+    <body>
+        <h1>The Dojo Message Board</h1>
+        <form id='submit_post' action='/posts' method='post'>
+            <p>Name:</p>
+            <input type='text' name='name'>
+            <p>Message:</p>
+            <textarea rows="5" cols="75" type='text' name='message'></textarea>
+            <input id='new_btn' type='submit' value='Post Message'>
+        </form>
+        <% for(var i=0; i < postsList.length; i++) { %>
+            <h3>Name: <%= postsList[i].name %> </h3>
+            <h3>Message: <%= postsList[i].message %></h3>
+            <% for(var j=0; j < postsList[i].comments.length; j++) { %>
+                <p>Name: <%= postsList[i].comments[j].name %> </p>
+                <p>Comment: <%= postsList[i].comments[j].comment %></p>
+            <% } %>
+            <form id='submit_comment' action='/posts/<%= postsList[i]._id %>' method='post'>
+                <p>Name:</p>
+                <input type='text' name='name'>
+                <p>Comment:</p>
+                <textarea rows="4" cols="65" type='txt' name='comment'></textarea>
+                <input id='new_btn' type='submit' value='Post Comment'>
+            </form>
+        <% } %>
+    </body>
+</html>

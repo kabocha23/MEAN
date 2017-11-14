@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Deck of Cards</title>
+        <script type="text/javascript">
+
+            var Deck = function Deck(){
+                this.deck = [];
+                this.reset();
+            };
+
+            Deck.prototype.reset = function(){
+                this.deck = [];
+
+                var suits = ['Hearts','Diamonds','Spades','Clubs'];
+                var nums = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+                for(var suit in suits){
+                    for(var num in nums){
+                        this.deck.push(nums[num] + " of " + suits[suit])
+                    }
+                }
+                return this;
+            };
+
+            Deck.prototype.shuffle = function(){
+                var m = this.deck.length, t, i;
+                
+                while(m){
+                    i = Math.floor(Math.random() * m--);
+
+                    t = this.deck[m];
+                    this.deck[m] = this.deck[i];
+                    this.deck[i] = t;
+                }
+                return this;
+            };
+
+            Deck.prototype.deal = function(){
+                return this.deck.pop()
+            }
+
+            var Player = function Player(name){
+                this.name = name;
+                this.hand = [];
+            }
+
+            Player.prototype.draw = function(deck){
+                this.hand.push(deck.deal());
+                return this;
+            }
+
+            Player.prototype.discard = function(deck){
+                this.hand.pop();
+                return this;
+            }
+
+            var deck1 = new Deck();
+            var deck2 = new Deck();
+            deck1.reset().shuffle();
+            console.log(deck1);
+
+            var player1 = new Player("Jason");
+            player1.draw(deck1).draw(deck1);
+            console.log(player1);
+
+            
+
+
+
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>
